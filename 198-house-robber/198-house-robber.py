@@ -1,6 +1,6 @@
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        dp = [-1] * (len(nums)+3)
+        dp = [-1] * (len(nums)+2)
         def helper(i):
             if i >= len(nums):
                 return 0
