@@ -13,8 +13,9 @@ class Solution:
                 if isConnected[i][j] == 1:
                     isConnected[i][j] = 2
                     if i != j:
-                        visited.add(j)
-                        helper(j,0)
+                        if j not in visited:
+                            visited.add(j)
+                            helper(j,0)
                 j += 1
         for i in range(rows):
             if i not in visited:
