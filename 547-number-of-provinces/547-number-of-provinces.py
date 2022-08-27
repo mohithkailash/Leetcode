@@ -11,7 +11,8 @@ class Solution:
                 print(i,j)
                 if isConnected[i][j] == 1:
                     isConnected[i][j] = 2
-                    helper(j,0)
+                    if i != j:
+                        helper(j,0)
                 j += 1
         for i in range(rows):
             for j in range(cols):
