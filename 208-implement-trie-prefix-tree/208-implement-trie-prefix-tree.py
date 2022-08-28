@@ -1,21 +1,39 @@
+class TrieNode():
+    def __init__(self):
+        self.children = {}
+        self.end = False
+
 class Trie:
 
     def __init__(self):
-        self.myset = set()
+        self.root = TrieNode()
 
     def insert(self, word: str) -> None:
-        self.myset.add(word)
-        return
-
+        cur = self.root
+        for c in word:
+            if c not in cur.children:
+                cur.children[c] = TrieNode()
+            cur = cur.children[c]
+        cur.end = True
+    
     def search(self, word: str) -> bool:
-        if word in self.myset:
-            return True
+        cur = self.root
+        
+        for c in word:
+            if c not in cur.children:
+                return False
+            cur = cur.children[c]
+        return cur.end
 
     def startsWith(self, prefix: str) -> bool:
-        for i in self.myset:
-            if prefix in i[0:len(prefix)]:
-                return True
-        return False
+        cur = self.root
+        
+        for c in prefix:
+            if c not in cur.children:
+                return False
+            cur = cur.children[c]
+            
+        return True
         
 
 
