@@ -7,8 +7,7 @@ class Solution:
                 digits.append(log)
             else:
                 letters.append(log)
-        letters.sort(key=lambda log: log.split()[0])
-        letters.sort(key=lambda log: log.split()[1:])
+        letters = sorted(letters, key=lambda letter: (letter.split()[1:],letter.split()[0]))
         result = letters+digits
         
         return result
