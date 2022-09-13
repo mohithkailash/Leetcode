@@ -9,9 +9,6 @@ class Solution:
             if nums[i] >= maxval:
                 maxpos = i
                 maxval = nums[i]
-        # for i in range(len(nums)-1,-1,-1):
-        #     if nums[i] > maxval:
-        #         maxpos = i
         left = minpos
         right = len(nums) - (1 + maxpos)
         print(left,maxpos)
